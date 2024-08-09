@@ -249,7 +249,7 @@ run_chat_dict["238013863"] = {
 """
 
 # 注册一个仅内部使用的命令,不需要 aliases
-@on_command('chat') # 'ai_chat'
+@on_command('chat',only_to_me=False) # 'ai_chat'
 async def ai_chat(session: CommandSession):
     msg_id = session.event.message_id
     qq_id = session.event.user_id
@@ -433,7 +433,7 @@ async def ai_chat(session: CommandSession):
     return
 
 
-@on_command('chatsys') # 'ai_chat'
+@on_command('chatsys',only_to_me=False) # 'ai_chat'
 async def ai_chat_system(session: CommandSession):
     msg_id = session.event.message_id
     qq_id = str(session.event.user_id)
@@ -494,7 +494,7 @@ async def ai_chat_system(session: CommandSession):
 
     return
 
-@on_command('chatcls')
+@on_command('chatcls',only_to_me=False)
 async def ai_chatclear(session: CommandSession):
     msg_id = session.event.message_id
     qq_id = session.event.user_id
@@ -508,7 +508,7 @@ async def ai_chatclear(session: CommandSession):
     record.clear(group_id)
     await session.send(f"[CQ:reply,id={msg_id}]已进行A级记忆删除")
 
-@on_command('chatstart')
+@on_command('chatstart',only_to_me=False)
 async def ai_chat_start(session: CommandSession):
     msg_id = session.event.message_id
     group_id = str(session.event.group_id)
@@ -520,7 +520,7 @@ async def ai_chat_start(session: CommandSession):
 
     await session.send(f"[CQ:reply,id={msg_id}]开启本群自动聊天模式")
 
-@on_command('chatstop')
+@on_command('chatstop',only_to_me=False)
 async def ai_chat_stop(session: CommandSession):
     msg_id = session.event.message_id
     group_id = str(session.event.group_id)
@@ -555,7 +555,7 @@ async def auto_chat(event):
 
     IMAGE_KEY_STRING = "[CQ:"
 
-    AT_KEY = f"[CQ:at,qq={bot_id}]"
+    AT_KEY = f"[CQ:at,qq={bot_id}"
     
     # at
     if content.startswith(AT_KEY):
@@ -919,7 +919,7 @@ async def auto_chat(event):
         print('-------------------------------')
     return
 
-@on_command('chatset')
+@on_command('chatset',only_to_me=False)
 async def ai_chat_set(session: CommandSession):
     msg_id = session.event.message_id
     qq_id = session.event.user_id
