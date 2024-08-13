@@ -301,7 +301,7 @@ async def ai_chat(session: CommandSession):
     # })
     record.append(group_id, {
         'role': 'user',
-        'content': remove_emojis(f"[{current_timestamp}]{nickname}({qq_id}):\n{content}"),
+        'content': emoji.demojize(f"[{current_timestamp}]{nickname}({qq_id}):\n{content}"),
         'options': ollama.Options(repeat_last_n=-1,
             num_predict=PREDICT,
             repeat_penalty=REPEAT_PENALTY,
@@ -464,7 +464,7 @@ async def ai_chat_system(session: CommandSession):
 
     record.append(group_id, {
         'role': 'system',
-        'content': remove_emojis(content),
+        'content': emoji.demojize(content),
         'mark_opt': mark_opt
     })
     
@@ -594,7 +594,7 @@ async def auto_chat(event):
         # })
         record.append(group_id, {
             'role': 'user',
-            'content': remove_emojis(f"[{current_timestamp}]{nickname}({qq_id}):\n{content}"),
+            'content': emoji.demojize(f"[{current_timestamp}]{nickname}({qq_id}):\n{content}"),
             'options': ollama.Options(repeat_last_n=-1,
                 num_predict=PREDICT,
                 repeat_penalty=REPEAT_PENALTY,
@@ -765,7 +765,7 @@ async def auto_chat(event):
         # })
         record.append(group_id, {
             'role': 'user',
-            'content': remove_emojis(f"[{current_timestamp}]{nickname}({qq_id}):\n{content}"),
+            'content': emoji.demojize(f"[{current_timestamp}]{nickname}({qq_id}):\n{content}"),
             'options': ollama.Options(repeat_last_n=-1,
                 num_predict=PREDICT,
                 repeat_penalty=REPEAT_PENALTY,
@@ -881,7 +881,7 @@ async def auto_chat(event):
     else:
         record.append(group_id, {
             'role': 'user',
-            'content': remove_emojis(f"[{current_timestamp}]{nickname}({qq_id}):\n{content}"),
+            'content': emoji.demojize(f"[{current_timestamp}]{nickname}({qq_id}):\n{content}"),
             'options': ollama.Options(repeat_last_n=-1,
                 num_predict=PREDICT,
                 repeat_penalty=REPEAT_PENALTY,
