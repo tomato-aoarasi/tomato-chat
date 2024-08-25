@@ -12,6 +12,10 @@ $ pip install -r requirement.txt
 需要本地安装[ollama](https://ollama.com/)  
 具体看ollama官方教程  
 
+## 配置bot
+全部配置内容都在bot_config.py中  
+默认是不给全部群开启chat的,请手动配置allow_groups添加允许  
+
 ## 启动nonebot1后台  
 ```bash
 $ python3 main.py
